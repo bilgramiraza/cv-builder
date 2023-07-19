@@ -1,12 +1,26 @@
 import PropTypes from 'prop-types';
 
 function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}) {
-  return (
-    <div>
-      <label htmlFor={inputName}>{inputLabel}</label>
-      <input type={inputType} name={inputName} onChange={handleChange} value={inputValue}/>
-    </div>
-  );
+  let inputGroup;
+  switch(inputType){
+    case 'desc':
+      inputGroup = (
+        <div>
+          <label htmlFor={inputName}>{inputLabel}</label>
+          <textarea name={inputName} onChange={handleChange}>{inputValue}</textarea>
+        </div>
+      );
+      break;
+    default:
+      inputGroup = (
+        <div>
+          <label htmlFor={inputName}>{inputLabel}</label>
+          <input type={inputType} name={inputName} onChange={handleChange} value={inputValue}/>
+        </div>
+      );
+      break;
+  }
+  return inputGroup;
 }
 
 InputGroup.propTypes = {
