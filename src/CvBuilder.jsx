@@ -1,6 +1,7 @@
 import { useState } from "react";
-import InputGroup from "./components/InputGroup";
 import Personal from "./components/Personal";
+import Education from "./components/Education";
+//import Experience from "./components/Experience";
 
 function CvBuilder() {
   const [cv, setCv] = useState({
@@ -17,22 +18,27 @@ function CvBuilder() {
         });
         break;
       case 'education':
+        setCv({
+          ...cv,
+          education:value,
+        });
         break;
       case 'experience':
+        setCv({
+          ...cv,
+          experience:value,
+        });
         break;
       default:
         throw new Error('How did we get Here');
     }
-  }
+  };
+
   return (
     <main>
       <Personal getPersonal={(value)=>handleSubmit('personal',value)}/>
-      <h3>Education</h3>
-      <InputGroup inputType="text" inputName="jobTitle" inputLabel="Job Title" />
-      <InputGroup inputType="number" inputName="jobExp" inputLabel="Job Experience(YOE)" />
-      <h3>Experience</h3>
-      <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" />
-      <InputGroup inputType="number" inputName="eduExp" inputLabel="Education Experience(YOE)" />
+      <Education getEducation={(value)=>handleSubmit('education',value)} />
+    {/*<Experience getExperience={(value)=>handleSubmit('experience',value)} />*/}
     </main>
   );
 }

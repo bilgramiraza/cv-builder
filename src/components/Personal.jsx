@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import InputGroup from "./components/InputGroup";
+import InputGroup from "./InputGroup";
 
 function Personal({getPersonal}) {
   const [fname, setFname] = useState('');
