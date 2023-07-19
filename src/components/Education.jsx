@@ -36,6 +36,7 @@ function Education({getEducation}) {
       <h3>Education Details</h3>
       <form onSubmit={handleSubmit}>
         <EntriesManager index={index} setIndex={setIndex} maxLength={9}/>
+        <p>Current Index: {index}</p>
         <InputGroup inputType="text" inputName="jobTitle" inputLabel="Job Title" inputValue={jobTitle} handleChange={handleChange}/>
         <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange}/>
         <button>Submit</button>
