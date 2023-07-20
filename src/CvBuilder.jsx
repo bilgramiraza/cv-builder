@@ -6,7 +6,7 @@ import Education from "./components/Education";
 function CvBuilder() {
   const [cv, setCv] = useState({
     personal:null,
-    education:[],
+    education:[{}],
     experience:[],
   });
   const handleSubmit = (category, value) =>{

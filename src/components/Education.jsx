@@ -28,20 +28,24 @@ function Education({getEducation, education}) {
       eduTitle,
       desc,
     };
-    if(education){
-      getEducation([...education,data]);
+    if(Object.keys(education[0]).length){
+      let newEducation = education.slice(0,-1);
+      getEducation([...newEducation,data,{}]);
     }else{
-      getEducation([data]);
+      getEducation([data,{}]);
     }
+    setIndex(education.length);
+    setDesc('');
+    setEduTitle('');
   };
 
   return (
     <div>
       <h3>Education Details</h3>
       <EntriesManager index={index} setIndex={setIndex} maxLength={education.length}/>
-      <form onSubmit={handleSubmit} >
-        <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} index={index}/>
-        <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange} index={index}/>
+      <form onSubmit={handleSubmit} key={index}>
+        <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange}/>
+        <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange}/>
         <button>Submit</button>
       </form>
     </div>
