@@ -7,7 +7,7 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}
       inputGroup = (
         <div>
           <label htmlFor={inputName}>{inputLabel}</label>
-          <textarea name={inputName} onChange={handleChange}>{inputValue}</textarea>
+          <textarea name={inputName} onChange={handleChange} value={inputValue} />
         </div>
       );
       break;
