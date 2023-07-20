@@ -2,18 +2,24 @@ import PropTypes from 'prop-types';
 
 function EntriesManager({index, setIndex, maxLength}) {
   const incrementIndex = () =>{
-    if(index<maxLength)
+    if(index<maxLength-1){
       setIndex(index+1);
+    }
   }
   const decrementIndex = () =>{
-    if(index>=0)
+    if(index>0){
       setIndex(index-1);
+    }
   }
   let navDiv=[];
+  let navItem;
   for(let i=0;i<maxLength;i++){ 
-    navDiv.push(
-      <a key={i} onClick={()=>setIndex(i)}>{i+1}</a>
-    );
+    if(i===index){
+      navItem = <a key={i} onClick={()=>setIndex(i)}>|{i+1}|</a>
+    }else{
+      navItem = <a key={i} onClick={()=>setIndex(i)}>{i+1}</a>
+    }
+    navDiv.push(navItem);
   }
   return (
     <div>
