@@ -37,7 +37,7 @@ function CvBuilder() {
   return (
     <main>
       <Personal getPersonal={(value)=>handleSubmit('personal',value)}/>
-      <Education getEducation={(value)=>handleSubmit('education',value)} />
+      <Education getEducation={(value)=>handleSubmit('education',value)} education={cv.education}/>
     {/*<Experience getExperience={(value)=>handleSubmit('experience',value)} />*/}
     </main>
   );
