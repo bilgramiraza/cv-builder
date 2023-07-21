@@ -5,22 +5,30 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}
   switch(inputType){
     case 'desc':
       inputGroup = (
-        <div>
-          <label htmlFor={inputName}>{inputLabel}</label>
-          <textarea name={inputName} onChange={handleChange} value={inputValue} />
-        </div>
+        <textarea 
+          name={inputName} 
+          onChange={handleChange} 
+          value={inputValue} 
+        />
       );
       break;
     default:
       inputGroup = (
-        <div>
-          <label htmlFor={inputName}>{inputLabel}</label>
-          <input type={inputType} name={inputName} onChange={handleChange} value={inputValue}/>
-        </div>
+        <input 
+          type={inputType} 
+          name={inputName} 
+          onChange={handleChange} 
+          value={inputValue}
+        />
       );
       break;
   }
-  return inputGroup;
+  return (
+    <div>
+      <label htmlFor={inputName}>{inputLabel}</label>
+      {inputGroup}
+    </div>
+  );
 }
 
 InputGroup.propTypes = {
