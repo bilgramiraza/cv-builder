@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Personal from "./components/Personal";
 import Education from "./components/Education";
-//import Experience from "./components/Experience";
+import Experience from "./components/Experience";
 
 function CvBuilder() {
   const [cv, setCv] = useState({
     personal:null,
     education:[{}],
-    experience:[],
+    experience:[{}],
   });
   const handleSubmit = (category, value) =>{
     switch(category){
@@ -38,7 +38,7 @@ function CvBuilder() {
     <main>
       <Personal getPersonal={(value)=>handleSubmit('personal',value)}/>
       <Education getEducation={(value)=>handleSubmit('education',value)} education={cv.education}/>
-    {/*<Experience getExperience={(value)=>handleSubmit('experience',value)} />*/}
+      <Experience getExperience={(value)=>handleSubmit('experience',value)} experience={cv.experience}/>
     </main>
   );
 }
