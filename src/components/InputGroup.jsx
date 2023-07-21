@@ -6,6 +6,7 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}
     case 'desc':
       inputGroup = (
         <textarea 
+          id={inputName} 
           name={inputName} 
           onChange={handleChange} 
           value={inputValue} 
@@ -15,6 +16,7 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}
     default:
       inputGroup = (
         <input 
+          id={inputName} 
           type={inputType} 
           name={inputName} 
           onChange={handleChange} 
