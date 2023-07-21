@@ -18,7 +18,7 @@ function Education({getEducation, education}) {
         setDesc(e.target.value);
         break;
       default:
-        throw new Error('How did we get Here');
+        throw new Error('Invalid Input Name');
     }
   };
 
