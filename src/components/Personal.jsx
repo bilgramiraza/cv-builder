@@ -6,6 +6,8 @@ function Personal({getPersonal}) {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [email, setEmail] = useState('');
+  const [status, setStatus] = useState(false);
+  const formStatus = fname&&lname&&email;
   
   const handleChange = (e) =>{
     switch(e.target.name){
@@ -25,22 +27,27 @@ function Personal({getPersonal}) {
 
   const handleSubmit= (e) =>{
     e.preventDefault();
-    const data = {
-      firstName:fname,
-      lastName:lname,
-      email,
-    };
-    getPersonal(data);
+    if(!status){
+      const data = {
+        firstName:fname,
+        lastName:lname,
+        email,
+      };
+      getPersonal(data);
+      setStatus(true);
+    }else{
+      setStatus(false);
+    }
   };
 
   return (
     <div>
       <h3>Personal Details</h3>
       <form onSubmit={handleSubmit}>
-        <InputGroup inputType="text" inputName="firstName" inputLabel="First Name" inputValue={fname} handleChange={handleChange}/>
-        <InputGroup inputType="text" inputName="lastName" inputLabel="Last Name" inputValue={lname} handleChange={handleChange}/>
-        <InputGroup inputType="email" inputName="email" inputLabel="Email" inputValue={email} handleChange={handleChange}/>
-        <button>Submit</button>
+        <InputGroup inputType="text" inputName="firstName" inputLabel="First Name" inputValue={fname} handleChange={handleChange} disabled={status}/>
+        <InputGroup inputType="text" inputName="lastName" inputLabel="Last Name" inputValue={lname} handleChange={handleChange} disabled={status}/>
+        <InputGroup inputType="email" inputName="email" inputLabel="Email" inputValue={email} handleChange={handleChange} disabled={status}/>
+        <button disabled={!formStatus}>{status?'Edit':'Submit'}</button>
       </form>
     </div>
   );
