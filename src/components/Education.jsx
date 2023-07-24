@@ -8,6 +8,9 @@ function Education({getEducation, education}) {
 
   const [eduTitle, setEduTitle] = useState(education[index]?.eduTitle||'');
   const [desc, setDesc] = useState(education[index]?.desc||'');
+
+  const [status, setStatus] = useState(false);
+  const formStatus = eduTitle&&desc;
   
   const handleChange=(e)=>{
     switch(e.target.name){
@@ -50,9 +53,9 @@ function Education({getEducation, education}) {
       <h3>Education Details</h3>
       <EntriesManager index={index} handleIndexChange={handleIndexChange} maxLength={education.length}/>
       <form onSubmit={handleSubmit} key={index}>
-        <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange}/>
-        <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange}/>
-        <button>Submit</button>
+        <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} disabled={status}/>
+        <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange} disabled={status}/>
+        <button disabled={!formStatus}>Submit</button>
       </form>
     </div>
   );
