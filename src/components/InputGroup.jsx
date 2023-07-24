@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}) {
+function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange, disabled}) {
   let inputGroup;
   switch(inputType){
     case 'desc':
@@ -10,6 +10,7 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}
           name={inputName} 
           onChange={handleChange} 
           value={inputValue} 
+          disabled={disabled}
         />
       );
       break;
@@ -21,6 +22,7 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange}
           name={inputName} 
           onChange={handleChange} 
           value={inputValue}
+          disabled={disabled}
         />
       );
       break;
@@ -39,6 +41,7 @@ InputGroup.propTypes = {
   inputLabel: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };
 
 export default InputGroup;
