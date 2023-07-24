@@ -8,9 +8,10 @@ function Education({getEducation, education}) {
 
   const [eduTitle, setEduTitle] = useState(education[index]?.eduTitle||'');
   const [desc, setDesc] = useState(education[index]?.desc||'');
+  const [status, setStatus] = useState(education[index]?.status||false);
 
-  const [status, setStatus] = useState(false);
   const formStatus = eduTitle&&desc;
+  const disableNewEntry = education.every(edu=>edu.status);
   
   const handleChange=(e)=>{
     switch(e.target.name){
@@ -27,25 +28,42 @@ function Education({getEducation, education}) {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    const data = {
-      eduTitle,
-      desc,
-    };
-    if(Object.keys(education[0]).length){
-      let newEducation = education.slice(0,-1);
-      getEducation([...newEducation,data,{}]);
-    }else{
-      getEducation([data,{}]);
+    if(education[index].status){
+      const newEducation = education.map((edu, i)=> i===index?{...edu,status:false}:edu);
+      getEducation(newEducation);
+      setStatus(false);
+      return;
     }
-    setIndex(education.length);
-    setDesc('');
-    setEduTitle('');
+    const newEducation = education.map((edu, i)=> i===index?{eduTitle,desc,status:true}:edu);
+    getEducation(newEducation);
+    setStatus(true);
+    return;
   };
 
   const handleIndexChange=(i)=>{
     setIndex(i);
-    setEduTitle(education[i]?.eduTitle||'');
-    setDesc(education[i]?.desc||'');
+    setEduTitle(education[i].eduTitle||'');
+    setDesc(education[i].desc||'');
+    setStatus(education[i].status||false);
+  };
+
+  const addEntry = () =>{
+    setIndex(index+1);
+    const newEducation = [...education];
+    newEducation.splice(index+1,0,{});
+    getEducation(newEducation);
+    setDesc('');
+    setEduTitle('');
+    setStatus(false);
+  };
+
+  const removeEntry = () =>{
+    const newEducation = [...education];
+    newEducation.splice(index,1);
+    getEducation(newEducation);
+    setDesc(newEducation[index]?.desc||'');
+    setEduTitle(newEducation[index]?.eduTitle||'');
+    setStatus(newEducation[index]?.status||false);
   };
 
   return (
@@ -55,7 +73,9 @@ function Education({getEducation, education}) {
       <form onSubmit={handleSubmit} key={index}>
         <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} disabled={status}/>
         <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange} disabled={status}/>
-        <button disabled={!formStatus}>Submit</button>
+        <button disabled={!formStatus}>{status?'Edit':'Submit'}</button>
+        <button type="button" onClick={addEntry} disabled={!disableNewEntry}>Add</button>
+        <button type="button" onClick={removeEntry} disabled={!education[index]?.status}>Remove</button>
       </form>
     </div>
   );
