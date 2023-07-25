@@ -12,7 +12,7 @@ function Education({getEducation, education}) {
   const [address, setAddress] = useState(education[index]?.address||'');
   const [status, setStatus] = useState(education[index]?.status||false);
 
-  const formStatus = eduTitle&&desc;
+  const formStatus = eduTitle&&desc&&endDate&&address;
   const disableNewEntry = education.every(edu=>edu.status);
   
   const handleChange=(e)=>{
