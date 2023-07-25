@@ -8,6 +8,8 @@ function Education({getEducation, education}) {
 
   const [eduTitle, setEduTitle] = useState(education[index]?.eduTitle||'');
   const [desc, setDesc] = useState(education[index]?.desc||'');
+  const [endDate, setEndDate] = useState(education[index]?.endDate||'');
+  const [address, setAddress] = useState(education[index]?.address||'');
   const [status, setStatus] = useState(education[index]?.status||false);
 
   const formStatus = eduTitle&&desc;
@@ -20,6 +22,12 @@ function Education({getEducation, education}) {
         break;
       case 'desc':
         setDesc(e.target.value);
+        break;
+      case 'endDate':
+        setEndDate(e.target.value);
+        break;
+      case 'address':
+        setAddress(e.target.value);
         break;
       default:
         throw new Error('Invalid Input Name');
@@ -34,7 +42,7 @@ function Education({getEducation, education}) {
       setStatus(false);
       return;
     }
-    const newEducation = education.map((edu, i)=> i===index?{eduTitle,desc,status:true}:edu);
+    const newEducation = education.map((edu, i)=> i===index?{eduTitle,desc,endDate,address,status:true}:edu);
     getEducation(newEducation);
     setStatus(true);
     return;
@@ -44,6 +52,8 @@ function Education({getEducation, education}) {
     setIndex(i);
     setEduTitle(education[i].eduTitle||'');
     setDesc(education[i].desc||'');
+    setEndDate(education[index].endDate||'');
+    setAddress(education[index].address||'');
     setStatus(education[i].status||false);
   };
 
@@ -52,8 +62,10 @@ function Education({getEducation, education}) {
     const newEducation = [...education];
     newEducation.splice(index+1,0,{});
     getEducation(newEducation);
-    setDesc('');
     setEduTitle('');
+    setDesc('');
+    setEndDate('');
+    setAddress('');
     setStatus(false);
   };
 
@@ -61,8 +73,10 @@ function Education({getEducation, education}) {
     const newEducation = [...education];
     newEducation.splice(index,1);
     getEducation(newEducation);
-    setDesc(newEducation[index]?.desc||'');
     setEduTitle(newEducation[index]?.eduTitle||'');
+    setDesc(newEducation[index]?.desc||'');
+    setEndDate(newEducation[index]?.endDate||'');
+    setAddress(newEducation[index]?.address||'');
     setStatus(newEducation[index]?.status||false);
   };
 
@@ -73,6 +87,8 @@ function Education({getEducation, education}) {
       <form onSubmit={handleSubmit} key={index}>
         <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} disabled={status}/>
         <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange} disabled={status}/>
+        <InputGroup inputType="month" inputName="endDate" inputLabel="Year of Completion" inputValue={endDate} handleChange={handleChange} disabled={status}/>
+        <InputGroup inputType="text" inputName="address" inputLabel="Location of Institute" inputValue={address} handleChange={handleChange} disabled={status}/>
         <button disabled={!formStatus}>{status?'Edit':'Submit'}</button>
         <button type="button" onClick={addEntry} disabled={!disableNewEntry}>Add</button>
         <button type="button" onClick={removeEntry} disabled={!education[index]?.status}>Remove</button>
