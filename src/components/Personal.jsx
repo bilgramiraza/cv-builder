@@ -2,11 +2,11 @@ import { useState } from "react";
 import PropTypes from 'prop-types';
 import InputGroup from "./InputGroup";
 
-function Personal({getPersonal}) {
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState(false);
+function Personal({getPersonal, personal}) {
+  const [fname, setFname] = useState(personal?.firstName||'');
+  const [lname, setLname] = useState(personal?.lastName||'');
+  const [email, setEmail] = useState(personal?.email||'');
+  const [status, setStatus] = useState(personal?.status||false);
   const formStatus = fname&&lname&&email;
   
   const handleChange = (e) =>{
@@ -32,10 +32,16 @@ function Personal({getPersonal}) {
         firstName:fname,
         lastName:lname,
         email,
+        status:true,
       };
       getPersonal(data);
       setStatus(true);
     }else{
+      const data = {
+        ...personal,
+        status:false,
+      };
+      getPersonal(data);
       setStatus(false);
     }
   };
@@ -58,4 +64,5 @@ export default Personal;
 
 Personal.propTypes = {
   getPersonal: PropTypes.func.isRequired,
+  personal: PropTypes.object,
 };

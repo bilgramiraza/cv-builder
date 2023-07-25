@@ -2,6 +2,7 @@ import { useState } from "react";
 import Personal from "./components/Personal";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Preview from "./components/Preview";
 
 function CvBuilder() {
   const [cv, setCv] = useState({
@@ -9,6 +10,9 @@ function CvBuilder() {
     education:[{}],
     experience:[{}],
   });
+
+  const cvStatus = cv.personal?.status&&cv.education[0]?.status&&cv.experience[0]?.status; 
+
   const handleSubmit = (category, value) =>{
     switch(category){
       case 'personal':
@@ -36,9 +40,14 @@ function CvBuilder() {
 
   return (
     <main>
-      <Personal getPersonal={(value)=>handleSubmit('personal',value)}/>
-      <Education getEducation={(value)=>handleSubmit('education',value)} education={cv.education}/>
-      <Experience getExperience={(value)=>handleSubmit('experience',value)} experience={cv.experience}/>
+      <div>
+        <Personal getPersonal={(value)=>handleSubmit('personal',value)} personal={cv.personal}/>
+        <Education getEducation={(value)=>handleSubmit('education',value)} education={cv.education}/>
+        <Experience getExperience={(value)=>handleSubmit('experience',value)} experience={cv.experience}/>
+      </div>
+      <div>
+        {cvStatus && <Preview personal={cv.personal} education={cv.education} experience={cv.experience}/>}
+      </div>
     </main>
   );
 }
