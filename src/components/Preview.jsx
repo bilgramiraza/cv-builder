@@ -32,10 +32,12 @@ function Preview({personal, education, experience}) {
   return (
     <div>
       <h2>{personal.firstName+' '+personal.lastName}</h2>
-      <p>{personal.email}</p>
+      <span>{personal.email}</span>
+      <span>{personal.address}</span>
+      <span>{personal.website}</span>
       <div>
         <h3>Professional Summary</h3> 
-        <p></p>
+        <p>{personal.profSummary}</p>
       </div>
       <div>
         <h3>EXPERIENCE</h3>
