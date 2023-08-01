@@ -10,7 +10,6 @@ function CvBuilder() {
     education:[{}],
     experience:[{}],
   });
-
   const cvStatus = cv.personal?.status&&cv.education[0]?.status&&cv.experience[0]?.status; 
 
   const handleSubmit = (category, value) =>{
@@ -39,13 +38,13 @@ function CvBuilder() {
   };
 
   return (
-    <main>
-      <div>
+    <main className="dark flex flex-col lg:flex-row">
+      <div className="block w-full lg:w-2/5 px-2 bg-gray-400 dark:bg-gray-900">
         <Personal getPersonal={(value)=>handleSubmit('personal',value)} personal={cv.personal}/>
         <Education getEducation={(value)=>handleSubmit('education',value)} education={cv.education}/>
         <Experience getExperience={(value)=>handleSubmit('experience',value)} experience={cv.experience}/>
       </div>
-      <div>
+      <div className="block w-full lg:w-3/5 px-2">
         {cvStatus && <Preview personal={cv.personal} education={cv.education} experience={cv.experience}/>}
       </div>
     </main>
