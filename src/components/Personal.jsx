@@ -63,20 +63,39 @@ function Personal({getPersonal, personal}) {
 
   return (
     <div>
-      <h3>Personal Details</h3>
-      <form onSubmit={handleSubmit}>
-        <InputGroup inputType="text" inputName="firstName" inputLabel="First Name" inputValue={fname} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="text" inputName="lastName" inputLabel="Last Name" inputValue={lname} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="email" inputName="email" inputLabel="Email" inputValue={email} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="text" inputName="address" inputLabel="Address" inputValue={address} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="url" inputName="website" inputLabel="Website/Github link here" inputValue={website} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="desc" inputName="profSummary" inputLabel="Professional Summary" inputValue={profSummary} handleChange={handleChange} disabled={status}/>
-        <button disabled={!formStatus}>{status?'Edit':'Submit'}</button>
+      <h3 className="mt-2 ms-2 text-2xl font-bold text-black dark:text-white">Personal Details</h3>
+      <form onSubmit={handleSubmit} className="flex flex-col">
+        <div className="flex flex-col w-full my-1.5 lg:flex-row">
+          <div className='block w-full ms-3 lg:w-1/2 '>
+            <InputGroup inputType="text" inputName="firstName" inputLabel="First Name" inputValue={fname} handleChange={handleChange} disabled={status}/>
+          </div>
+          <div className='block w-full ms-3 lg:w-1/2 '>
+            <InputGroup inputType="text" inputName="lastName" inputLabel="Last Name" inputValue={lname} handleChange={handleChange} disabled={status}/>
+          </div>
+        </div>
+        <div className="flex flex-col w-full my-1.5 lg:flex-row">
+          <div className='block w-full ms-3 lg:w-1/3 '>
+            <InputGroup inputType="email" inputName="email" inputLabel="Email" inputValue={email} handleChange={handleChange} disabled={status}/>
+          </div>
+          <div className='block w-full ms-3 lg:w-1/3 '>
+            <InputGroup inputType="text" inputName="address" inputLabel="Address" inputValue={address} handleChange={handleChange} disabled={status}/>
+          </div>
+          <div className='block w-full ms-3 lg:w-1/3 '>
+            <InputGroup inputType="url" inputName="website" inputLabel="Website/Github link here" inputValue={website} handleChange={handleChange} disabled={status}/>
+          </div>
+        </div>
+        <div className="flex flex-col w-auto my-1.5 lg:flex-row">
+          <div className='block w-full ms-3'>
+            <InputGroup inputType="desc" inputName="profSummary" inputLabel="Professional Summary" inputValue={profSummary} handleChange={handleChange} disabled={status}/>
+          </div>
+        </div>
+        <div className="flex justify-center mt-2">
+          <button className={`border ${!formStatus?'border-red-700 bg-transparent':(status?'border-blue-700 bg-blue-300 hover:bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-900':'border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900')} w-1/6 transition ease-in duration-200 text-black dark:text-white`} disabled={!formStatus}>{status?'Edit':'Submit'}</button>
+        </div>
       </form>
     </div>
   );
 }
-
 export default Personal;
 
 
