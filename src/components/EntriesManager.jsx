@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 function EntriesManager({index, handleIndexChange, maxLength}) {
+  const navBaseClass='bg-gray-300 border border-gray-600 text-black hover:bg-gray-500 hover:text-white leading-tight py-2 px-3 dark:bg-gray-700 dark:border-white dark:text-white dark:hover:bg-gray-300 dark:hover:text-black cursor-pointer';
   const incrementIndex = () =>{
     if(index<maxLength-1){
       handleIndexChange(index+1);
@@ -15,20 +16,24 @@ function EntriesManager({index, handleIndexChange, maxLength}) {
   let navItem;
   for(let i=0;i<maxLength;i++){ 
     if(i===index){
-      navItem = <a key={i} onClick={()=>handleIndexChange(i)}>|{i+1}|</a>
+      navItem = <a className='bg-gray-500 border border-gray-600 text-white hover:bg-gray-300 hover:text-gray-900 leading-tight py-2 px-3 dark:bg-gray-300 dark:border-white dark:text-gray-900 dark:hover:bg-gray-50 dark:hover:text-black cursor-pointer' key={i} onClick={()=>handleIndexChange(i)}>{i+1}</a>
     }else{
-      navItem = <a key={i} onClick={()=>handleIndexChange(i)}>{i+1}</a>
+      navItem = <a className={navBaseClass} key={i} onClick={()=>handleIndexChange(i)}>{i+1}</a>
     }
-    navDiv.push(navItem);
+    navDiv.push(<li>{navItem}</li>);
   }
   return (
-    <div>
-      <button onClick={incrementIndex}>+</button>
-      <div>
+    <nav className='flex justify-center mt-2'>
+      <ul className='flex flex-row'>
+        <li>
+          <a className={`${navBaseClass} rounded-l-lg `} onClick={decrementIndex}>Previous</a>
+        </li>
         {navDiv}
-      </div>
-      <button onClick={decrementIndex}>-</button>
-    </div>
+        <li>
+          <a className={`${navBaseClass} rounded-r-lg`} onClick={incrementIndex}>Next</a>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
