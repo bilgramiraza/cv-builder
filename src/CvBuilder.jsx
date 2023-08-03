@@ -3,8 +3,9 @@ import Personal from "./components/Personal";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Preview from "./components/Preview";
+import PropTypes from 'prop-types';
 
-function CvBuilder() {
+function CvBuilder({darkMode}) {
   const [cv, setCv] = useState({
     personal:null,
     education:[{}],
@@ -38,7 +39,7 @@ function CvBuilder() {
   };
 
   return (
-    <main className="dark flex flex-col lg:flex-row">
+    <main className={`${darkMode ? 'dark' : ''} flex flex-col lg:flex-row`}>
       <div className="block w-full lg:w-2/5 px-2 bg-gray-400 dark:bg-gray-900">
         <Personal getPersonal={(value)=>handleSubmit('personal',value)} personal={cv.personal}/>
         <Education getEducation={(value)=>handleSubmit('education',value)} education={cv.education}/>
@@ -52,3 +53,7 @@ function CvBuilder() {
 }
 
 export default CvBuilder;
+
+CvBuilder.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
+};
