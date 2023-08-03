@@ -23,7 +23,7 @@ function EntriesManager({index, handleIndexChange, maxLength}) {
     navDiv.push(<li>{navItem}</li>);
   }
   return (
-    <nav className='flex justify-center mt-2'>
+    <nav className='flex justify-center my-2'>
       <ul className='flex flex-row'>
         <li>
           <a className={`${navBaseClass} rounded-l-lg `} onClick={decrementIndex}>Previous</a>

@@ -52,8 +52,8 @@ function Education({getEducation, education}) {
     setIndex(i);
     setEduTitle(education[i].eduTitle||'');
     setDesc(education[i].desc||'');
-    setEndDate(education[index].endDate||'');
-    setAddress(education[index].address||'');
+    setEndDate(education[i].endDate||'');
+    setAddress(education[i].address||'');
     setStatus(education[i].status||false);
   };
 
@@ -70,8 +70,13 @@ function Education({getEducation, education}) {
   };
 
   const removeEntry = () =>{
-    const newEducation = [...education];
-    newEducation.splice(index,1);
+    let newEducation;
+    if(education.length===1){
+      newEducation = [{}];
+    }else{
+      newEducation = [...education];
+      newEducation.splice(index,1);
+    }
     getEducation(newEducation);
     setEduTitle(newEducation[index]?.eduTitle||'');
     setDesc(newEducation[index]?.desc||'');
@@ -82,17 +87,35 @@ function Education({getEducation, education}) {
 
   return (
     <div>
-      <h3>Education Details</h3>
-      <EntriesManager index={index} handleIndexChange={handleIndexChange} maxLength={education.length}/>
-      <form onSubmit={handleSubmit} key={index}>
-        <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="month" inputName="endDate" inputLabel="Year of Completion" inputValue={endDate} handleChange={handleChange} disabled={status}/>
-        <InputGroup inputType="text" inputName="address" inputLabel="Location of Institute" inputValue={address} handleChange={handleChange} disabled={status}/>
-        <button disabled={!formStatus}>{status?'Edit':'Submit'}</button>
-        <button type="button" onClick={addEntry} disabled={!disableNewEntry}>Add</button>
-        <button type="button" onClick={removeEntry} disabled={!education[index]?.status}>Remove</button>
+      <h3 className="mt-2 ms-2 text-2xl font-bold text-black dark:text-white">Education Details</h3>
+      <form className="flex flex-col" onSubmit={handleSubmit} key={index}>
+        <div className="flex flex-col w-full my-1.5 lg:flex-row">
+          <div className='block w-full ms-3'>
+            <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} disabled={status}/>
+          </div>
+        </div>
+        <div className="flex flex-col w-full my-1.5 lg:flex-row">
+          <div className='block w-full ms-3 lg:w-1/2 '>
+            <InputGroup inputType="text" inputName="address" inputLabel="Location of Institute" inputValue={address} handleChange={handleChange} disabled={status}/>
+          </div>
+          <div className='block w-full ms-3 lg:w-1/2 '>
+            <InputGroup inputType="month" inputName="endDate" inputLabel="Year of Completion" inputValue={endDate} handleChange={handleChange} disabled={status}/>
+          </div>
+        </div>
+        <div className="flex flex-col w-full my-1.5 lg:flex-row">
+          <div className='block w-full ms-3'>
+            <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange} disabled={status}/>
+          </div>
+        </div>
+        <div className="flex justify-center my-4">
+          <button className={`border ${!formStatus?'border-red-700 bg-transparent':(status?'border-blue-700 bg-blue-300 hover:bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-900':'border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900')} w-1/6 transition ease-in duration-200 text-black dark:text-white`} disabled={!formStatus}>{status?'Edit':'Submit'}</button>
+        </div>
       </form>
+      <EntriesManager index={index} handleIndexChange={handleIndexChange} maxLength={education.length}/>
+      <div className="flex justify-center my-4">
+        <button type="button" onClick={addEntry} disabled={!disableNewEntry} className={`border ${!disableNewEntry?'border-red-700 bg-transparent':'border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900'} w-1/6 transition ease-in duration-200 text-black dark:text-white`}>Add</button>
+        <button type="button" onClick={removeEntry} disabled={!education[index]?.status} className={`border ${!education[index]?.status?'border-red-700 bg-transparent':'border-red-700 bg-red-300 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-900'} w-1/6 transition ease-in duration-200 text-black dark:text-white`}>Remove</button>
+      </div>
     </div>
   );
 }
