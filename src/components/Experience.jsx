@@ -54,9 +54,12 @@ function Experience({getExperience, experience}) {
 
   const handleIndexChange=(i)=>{
     setIndex(i);
+    setExpCompany(experience[i]?.expCompany||'');
     setExpTitle(experience[i]?.expTitle||'');
+    setStartDate(experience[i]?.startDate||'');
+    setEndDate(experience[i]?.endDate||'');
     setDesc(experience[i]?.desc||'');
-    setStatus(experience[i]?.status||'');
+    setStatus(experience[i]?.status||false);
   };
 
   const addEntry = () =>{
@@ -73,8 +76,13 @@ function Experience({getExperience, experience}) {
   };
 
   const removeEntry = () =>{
-    const newExperience = [...experience];
-    newExperience.splice(index,1);
+    let newExperience ;
+    if(experience.length===1){
+      newExperience= [{}];
+    }else{
+      newExperience= [...experience];
+      newExperience.splice(index,1);
+    }
     getExperience(newExperience);
     setExpCompany(newExperience[index]?.expCompany||'');
     setExpTitle(newExperience[index]?.expTitle||'');
