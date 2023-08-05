@@ -33,7 +33,7 @@ function CvBuilder({darkMode}) {
         });
         break;
       default:
-        throw new Error('How did we get Here');
+        throw new Error('Invalid Category passed to SubmitHandler');
     }
   };
 
@@ -45,7 +45,7 @@ function CvBuilder({darkMode}) {
         <Experience getExperience={(value)=>handleSubmit('experience',value)} experience={cv.experience}/>
       </div>
       <div className="block border-l-2 border-black w-full lg:w-3/5 px-2 bg-gray-400 dark:border-white dark:bg-gray-900">
-        <Preview cv={cv}/>
+        <Preview personal={cv.personal} education={cv.education} experience={cv.experience}/>
       </div>
     </main>
   );
