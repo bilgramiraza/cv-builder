@@ -16,11 +16,11 @@ function EntriesManager({index, handleIndexChange, maxLength}) {
   let navItem;
   for(let i=0;i<maxLength;i++){ 
     if(i===index){
-      navItem = <a className='bg-gray-500 border border-gray-600 text-white hover:bg-gray-300 hover:text-gray-900 leading-tight py-2 px-3 dark:bg-gray-300 dark:border-white dark:text-gray-900 dark:hover:bg-gray-50 dark:hover:text-black cursor-pointer' key={i} onClick={()=>handleIndexChange(i)}>{i+1}</a>
+      navItem = <a className='bg-gray-500 border border-gray-600 text-white hover:bg-gray-300 hover:text-gray-900 leading-tight py-2 px-3 dark:bg-gray-300 dark:border-white dark:text-gray-900 dark:hover:bg-gray-50 dark:hover:text-black cursor-pointer' onClick={()=>handleIndexChange(i)}>{i+1}</a>
     }else{
-      navItem = <a className={navBaseClass} key={i} onClick={()=>handleIndexChange(i)}>{i+1}</a>
+      navItem = <a className={navBaseClass} onClick={()=>handleIndexChange(i)}>{i+1}</a>
     }
-    navDiv.push(<li>{navItem}</li>);
+    navDiv.push(<li key={i} >{navItem}</li>);
   }
   return (
     <nav className='flex justify-center my-2'>
