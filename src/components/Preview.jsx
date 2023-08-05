@@ -7,7 +7,7 @@ function Preview({ personal, education, experience }) {
     return (
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
-          <span className='w-4/5 text-2xl'>{DateTime.fromISO(edu?.eduTitle).toFormat('MMM-yy')}</span>
+          <span className='w-4/5 text-2xl'>{DateTime.fromISO(edu?.eduTitle).toFormat('MMM yyyy')}</span>
           <span className='w-1/5 text-xl text-right'>{edu.endDate}</span>
         </div>
         <div className='flex flex-row justify-between text-xl font-semibold italic'>
@@ -21,7 +21,7 @@ function Preview({ personal, education, experience }) {
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
           <span className='w-4/5 text-2xl'>{exp.expCompany}</span>
-          <span className='w-1/5 text-xl text-right'>{DateTime.fromISO(exp?.startDate).toFormat('MMM-yy')} - {DateTime.fromISO(exp?.endDate).toFormat('MMM-yy')}</span>
+          <span className='w-1/5 text-xl text-right'>{DateTime.fromISO(exp?.startDate).toFormat('MMM yyyy')} - {DateTime.fromISO(exp?.endDate).toFormat('MMM yyyy')}</span>
         </div>
         <div className='flex flex-row justify-between text-xl font-semibold italic'>
           <span>{exp.expTitle}</span>
