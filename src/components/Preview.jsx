@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 
-function Preview(props) {
-  let { personal, education, experience } = props.cv;
+function Preview({ personal, education, experience }) {
 
-  const educationDiv = !education?.status ? [] : education.map((edu, i) => {
+  const educationDiv = !education[0]?.status ? [] : education.map((edu, i) => {
     return (
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
@@ -16,7 +15,7 @@ function Preview(props) {
         </div>
       </div>);
   });
-  const experienceDiv = !experience?.status ? [] : experience.map((exp, i) => {
+  const experienceDiv = !experience[0]?.status ? [] : experience.map((exp, i) => {
     return (
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
@@ -73,5 +72,7 @@ export default Preview;
 
 
 Preview.propTypes = {
-  cv: PropTypes.object,
+  personal: PropTypes.object,
+  education: PropTypes.array,
+  experience: PropTypes.array,
 };
