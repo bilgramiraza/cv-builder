@@ -14,7 +14,6 @@ function Experience({ getExperience, experience }) {
   const [status, setStatus] = useState(experience[index]?.status || false);
 
   const formStatus = expCompany && expTitle && startDate && endDate && desc;
-  const disableNewEntry = experience.every(exp => exp.status);
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -83,6 +82,7 @@ function Experience({ getExperience, experience }) {
       newExperience = [...experience];
       newExperience.splice(index, 1);
     }
+
     getExperience(newExperience);
     setExpCompany(newExperience[index]?.expCompany || '');
     setExpTitle(newExperience[index]?.expTitle || '');
@@ -124,8 +124,8 @@ function Experience({ getExperience, experience }) {
       </form>
       <EntriesManager index={index} handleIndexChange={handleIndexChange} maxLength={experience.length} />
       <div className="flex justify-center my-4">
-        <button type="button" onClick={addEntry} disabled={!disableNewEntry} className={`border ${!disableNewEntry ? 'border-red-700 bg-transparent' : 'border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900'} w-1/6 transition ease-in duration-200 text-black dark:text-white`}>Add</button>
-        <button type="button" onClick={removeEntry} disabled={!experience[index]?.status} className={`border ${!experience[index]?.status ? 'border-red-700 bg-transparent' : 'border-red-700 bg-red-300 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-900'} w-1/6 transition ease-in duration-200 text-black dark:text-white`}>Remove</button>
+        <button type="button" onClick={addEntry} className={'border border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Add</button>
+        <button type="button" onClick={removeEntry} className={'border border-red-700 bg-red-300 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Remove</button>
       </div>
     </div>
   );

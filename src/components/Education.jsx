@@ -13,7 +13,6 @@ function Education({getEducation, education}) {
   const [status, setStatus] = useState(education[index]?.status||false);
 
   const formStatus = eduTitle&&desc&&endDate&&address;
-  const disableNewEntry = education.every(edu=>edu.status);
   
   const handleChange=(e)=>{
     switch(e.target.name){
@@ -77,6 +76,7 @@ function Education({getEducation, education}) {
       newEducation = [...education];
       newEducation.splice(index,1);
     }
+
     getEducation(newEducation);
     setEduTitle(newEducation[index]?.eduTitle||'');
     setDesc(newEducation[index]?.desc||'');
@@ -113,8 +113,8 @@ function Education({getEducation, education}) {
       </form>
       <EntriesManager index={index} handleIndexChange={handleIndexChange} maxLength={education.length}/>
       <div className="flex justify-center my-4">
-        <button type="button" onClick={addEntry} disabled={!disableNewEntry} className={`border ${!disableNewEntry?'border-red-700 bg-transparent':'border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900'} w-1/6 transition ease-in duration-200 text-black dark:text-white`}>Add</button>
-        <button type="button" onClick={removeEntry} disabled={!education[index]?.status} className={`border ${!education[index]?.status?'border-red-700 bg-transparent':'border-red-700 bg-red-300 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-900'} w-1/6 transition ease-in duration-200 text-black dark:text-white`}>Remove</button>
+        <button type="button" onClick={addEntry} className={'border border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Add</button>
+        <button type="button" onClick={removeEntry} className={'border border-red-700 bg-red-300 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Remove</button>
       </div>
     </div>
   );
