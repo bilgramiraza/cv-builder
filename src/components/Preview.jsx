@@ -8,8 +8,8 @@ function Preview({ personal, education, experience }) {
     return (
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
-          <span className='w-4/5 text-2xl'>{DateTime.fromISO(edu.eduTitle).toFormat('MMM yyyy')}</span>
-          <span className='w-1/5 text-xl text-right'>{edu.endDate}</span>
+          <span className='w-4/5 text-2xl'>{edu.eduTitle}</span>
+          <span className='w-1/5 text-xl text-right'>{DateTime.fromISO(edu.endDate).toFormat('MMM yyyy')}</span>
         </div>
         <div className='flex flex-row justify-between text-xl font-semibold italic'>
           <span>{edu.desc}</span>
