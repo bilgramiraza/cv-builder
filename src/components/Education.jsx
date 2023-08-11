@@ -13,7 +13,7 @@ function Education({getEducation, education}) {
   const [status, setStatus] = useState(education[index]?.status||false);
 
   const formStatus = eduTitle&&desc&&endDate&&address;
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
   
   const handleChange=(e)=>{
     switch(e.target.name){
@@ -91,9 +91,12 @@ function Education({getEducation, education}) {
   };
 
   return (
-    <div className="border-2 border-black rounded mt-2">
-      <div className="border-b-2 border-black py-2 ps-2 rounded-t bg-gray-300 dark:bg-gray-800 cursor-pointer" onClick={toggleForm}>
+    <div className="border-2 border-black rounded mt-2 dark:border-white">
+      <div className="flex flex-row border-b-2 border-black py-2 ps-2 rounded-t bg-gray-300 dark:bg-gray-800 justify-between cursor-pointer dark:border-white" onClick={toggleForm}>
         <h3 className="text-2xl font-bold text-black dark:text-white">Education Details</h3>
+        <div className="mr-2 mt-1">
+          <svg className={`${showForm?'rotate-180':''} stroke-black stroke-2 dark:stroke-white transition ease-in duration-200`} fill="none" height="24" shapeRendering="geometricPrecision" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+        </div>
       </div>
       <form className={`flex flex-col pb-2 ${showForm?'':'hidden'}`} onSubmit={handleSubmit} key={index}>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
