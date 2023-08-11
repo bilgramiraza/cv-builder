@@ -10,7 +10,9 @@ function Personal({getPersonal, personal}) {
   const [website, setWebsite] = useState(personal?.website||'');
   const [profSummary, setProfSummary] = useState(personal?.profSummary||'');
   const [status, setStatus] = useState(personal?.status||false);
+
   const formStatus = fname&&lname&&email&&address&&website&&profSummary;
+  const [showForm, setShowForm] = useState(false);
   
   const handleChange = (e) =>{
     switch(e.target.name){
@@ -61,10 +63,16 @@ function Personal({getPersonal, personal}) {
     }
   };
 
+  const toggleForm = () =>{
+    setShowForm(!showForm);
+  };
+
   return (
-    <div>
-      <h3 className="mt-2 ms-2 text-2xl font-bold text-black dark:text-white">Personal Details</h3>
-      <form onSubmit={handleSubmit} className="flex flex-col">
+    <div className="border-2 border-black rounded mt-2">
+      <div className="border-b-2 border-black py-2 ps-2 rounded-t bg-gray-300 dark:bg-gray-800 cursor-pointer" onClick={toggleForm}>
+        <h3 className="text-2xl font-bold text-black dark:text-white">Personal Details</h3>
+      </div>
+      <form onSubmit={handleSubmit} className={`flex flex-col pb-2 ${showForm?'':'hidden'}`}>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3 lg:w-1/2 '>
             <InputGroup inputType="text" inputName="firstName" inputLabel="First Name" inputValue={fname} handleChange={handleChange} disabled={status}/>

@@ -13,6 +13,7 @@ function Education({getEducation, education}) {
   const [status, setStatus] = useState(education[index]?.status||false);
 
   const formStatus = eduTitle&&desc&&endDate&&address;
+  const [showForm, setShowForm] = useState(false);
   
   const handleChange=(e)=>{
     switch(e.target.name){
@@ -85,10 +86,16 @@ function Education({getEducation, education}) {
     setStatus(newEducation[index]?.status||false);
   };
 
+  const toggleForm = () =>{
+    setShowForm(!showForm);
+  };
+
   return (
-    <div>
-      <h3 className="mt-2 ms-2 text-2xl font-bold text-black dark:text-white">Education Details</h3>
-      <form className="flex flex-col" onSubmit={handleSubmit} key={index}>
+    <div className="border-2 border-black rounded mt-2">
+      <div className="border-b-2 border-black py-2 ps-2 rounded-t bg-gray-300 dark:bg-gray-800 cursor-pointer" onClick={toggleForm}>
+        <h3 className="text-2xl font-bold text-black dark:text-white">Education Details</h3>
+      </div>
+      <form className={`flex flex-col pb-2 ${showForm?'':'hidden'}`} onSubmit={handleSubmit} key={index}>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3'>
             <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} disabled={status}/>
@@ -108,14 +115,14 @@ function Education({getEducation, education}) {
           </div>
         </div>
         <div className="flex justify-center my-4">
-          <button className={`border ${!formStatus?'border-red-700 bg-transparent':(status?'border-blue-700 bg-blue-300 hover:bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-900':'border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900')} w-1/6 transition ease-in duration-200 text-black dark:text-white`} disabled={!formStatus}>{status?'Edit':'Submit'}</button>
+          <button className={`border ${!formStatus?'border-red-700 bg-transparent':(status?'border-blue-700 bg-blue-300 hover:bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-900':'border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900')} w-1/6 transition ease-in duration-200 text-black dark:text-white`} disabled={!formStatus} type="submit">{status?'Edit':'Submit'}</button>
+        </div>
+        <EntriesManager index={index} handleIndexChange={handleIndexChange} maxLength={education.length}/>
+        <div className="flex justify-center my-2">
+          <button type="button" onClick={addEntry} className={'border border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Add</button>
+          <button type="button" onClick={removeEntry} className={'border border-red-700 bg-red-300 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Remove</button>
         </div>
       </form>
-      <EntriesManager index={index} handleIndexChange={handleIndexChange} maxLength={education.length}/>
-      <div className="flex justify-center my-4">
-        <button type="button" onClick={addEntry} className={'border border-green-700 bg-green-300 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Add</button>
-        <button type="button" onClick={removeEntry} className={'border border-red-700 bg-red-300 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-900 w-1/6 transition ease-in duration-200 text-black dark:text-white'}>Remove</button>
-      </div>
     </div>
   );
 }
