@@ -38,8 +38,8 @@ function CvBuilder({darkMode}) {
   };
 
   return (
-    <main className={`${darkMode ? 'dark' : ''} flex flex-col lg:flex-row`}>
-      <div className="block w-full lg:w-2/5 px-2 bg-gray-400 dark:bg-gray-900">
+    <main className={`${darkMode ? 'dark' : ''} flex flex-col lg:flex-row lg:min-h-[87vh]`}>
+      <div className="block w-full lg:w-2/5 px-2 bg-gray-400 dark:bg-gray-900 overflow-auto">
         <Personal getPersonal={(value)=>handleSubmit('personal',value)} personal={cv.personal}/>
         <Education getEducation={(value)=>handleSubmit('education',value)} education={cv.education}/>
         <Experience getExperience={(value)=>handleSubmit('experience',value)} experience={cv.experience}/>

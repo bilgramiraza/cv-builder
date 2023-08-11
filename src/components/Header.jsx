@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function Header({ darkMode, handleDarkMode }) {
   return (
-    <header className={`${darkMode ? 'dark' : ''} `}>
+    <header className={`${darkMode ? 'dark' : ''} lg:min-h-[5vh]`}>
       <div className="flex justify-between py-2.5 border-b-2 border-black bg-gray-300 dark:border-white dark:bg-gray-800">
         <span className="ms-3 text-3xl text-black font-bold dark:text-white sm:me-1">
           CV Builder
