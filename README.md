@@ -95,10 +95,10 @@ Make sure your npm is upto date.
    npm run dev
    ```
 
-Runs the app in the development mode.\
-Open by pressing '' or by visiting [http://localhost:5173/](http://localhost:5173) to view it in your browser.
+Runs the app in the development mode.
+Open by pressing 'o' or by visiting [http://localhost:5173/](http://localhost:5173) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
