@@ -16,9 +16,9 @@ function EntriesManager({index, handleIndexChange, maxLength}) {
   let navItem;
   for(let i=0;i<maxLength;i++){ 
     if(i===index){
-      navItem = <a className='bg-gray-500 border border-gray-600 text-white hover:bg-gray-300 hover:text-gray-900 leading-tight py-2 px-3 dark:bg-gray-300 dark:border-white dark:text-gray-900 dark:hover:bg-gray-50 dark:hover:text-black cursor-pointer' onClick={()=>handleIndexChange(i)}>{i+1}</a>
+      navItem = <a href='#' className='bg-gray-500 border border-gray-600 text-white hover:bg-gray-300 hover:text-gray-900 leading-tight py-2 px-3 dark:bg-gray-300 dark:border-white dark:text-gray-900 dark:hover:bg-gray-50 dark:hover:text-black cursor-pointer' onClick={()=>handleIndexChange(i)}>{i+1}</a>
     }else{
-      navItem = <a className={navBaseClass} onClick={()=>handleIndexChange(i)}>{i+1}</a>
+      navItem = <a href='#' className={navBaseClass} onClick={()=>handleIndexChange(i)}>{i+1}</a>
     }
     navDiv.push(<li key={i} >{navItem}</li>);
   }
@@ -26,11 +26,11 @@ function EntriesManager({index, handleIndexChange, maxLength}) {
     <nav className='flex justify-center my-2'>
       <ul className='flex flex-row'>
         <li>
-          <a className={`${navBaseClass} rounded-l-lg `} onClick={decrementIndex}>Previous</a>
+          <a href='#' className={`${navBaseClass} rounded-l-lg `} onClick={decrementIndex}>Previous</a>
         </li>
         {navDiv}
         <li>
-          <a className={`${navBaseClass} rounded-r-lg`} onClick={incrementIndex}>Next</a>
+          <a href='#' className={`${navBaseClass} rounded-r-lg`} onClick={incrementIndex}>Next</a>
         </li>
       </ul>
     </nav>
