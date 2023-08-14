@@ -24,13 +24,13 @@ function Experience({ getExperience, experience }) {
       case 'expTitle':
         setExpTitle(e.target.value);
         break;
-      case 'startDate':
+      case 'expStartDate':
         setStartDate(e.target.value);
         break;
-      case 'endDate':
+      case 'expEndDate':
         setEndDate(e.target.value);
         break;
-      case 'desc':
+      case 'expDesc':
         setDesc(e.target.value);
         break;
       default:
@@ -108,23 +108,23 @@ function Experience({ getExperience, experience }) {
       <form className={`flex flex-col pb-2 ${showForm?'':'hidden'}`} onSubmit={handleSubmit} key={index}>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="text" inputName="expCompany" inputLabel="Company Name" inputValue={expCompany} handleChange={handleChange} disabled={status} />
+            <InputGroup inputType="text" inputName="expCompany" inputLabel="Company Name" inputValue={expCompany} handleChange={handleChange} placeHolder="Acme Corp" disabled={status} />
           </div>
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="text" inputName="expTitle" inputLabel="Job Title" inputValue={expTitle} handleChange={handleChange} disabled={status} />
+            <InputGroup inputType="text" inputName="expTitle" inputLabel="Job Title" inputValue={expTitle} handleChange={handleChange} placeHolder="Lead Tester" disabled={status} />
           </div>
         </div>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="month" inputName="startDate" inputLabel="Start Date" inputValue={startDate} handleChange={handleChange} disabled={status} />
+            <InputGroup inputType="month" inputName="expStartDate" inputLabel="Start Date" inputValue={startDate} handleChange={handleChange} disabled={status} />
           </div>
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="month" inputName="endDate" inputLabel="End Date" inputValue={endDate} handleChange={handleChange} disabled={status} />
+            <InputGroup inputType="month" inputName="expEndDate" inputLabel="End Date" inputValue={endDate} handleChange={handleChange} disabled={status} />
           </div>
         </div>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3'>
-            <InputGroup inputType="desc" inputName="desc" inputLabel="Job Description" inputValue={desc} handleChange={handleChange} disabled={status} />
+            <InputGroup inputType="desc" inputName="expDesc" inputLabel="Job Description" inputValue={desc} handleChange={handleChange} placeHolder="Lead Tester for the Acme Corp" disabled={status} />
           </div>
         </div>
         <div className="flex justify-center my-4">

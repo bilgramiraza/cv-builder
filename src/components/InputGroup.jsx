@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange, disabled}) {
+function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange, placeHolder, disabled}) {
   const [isValid, setIsValid] = useState(true);
   const handleInputChange = (e) => {
     handleChange(e);
@@ -16,9 +16,13 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange,
           name={inputName} 
           onChange={handleInputChange} 
           value={inputValue} 
+          placeholder={placeHolder}
           disabled={disabled}
           rows={4}
-          className={`w-11/12 px-1 py-1 text-sm lg:text-base text-black rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
+          aria-invalid={!isValid}
+          aria-describedby={isValid ? null : `${inputName}-error`}
+          aria-labelledby={`${inputName}-label`}
+          className={`w-11/12 px-1 py-1 text-sm lg:text-base text-black placeholder-gray-500 rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
         />
       );
       break;
@@ -30,21 +34,25 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange,
           name={inputName} 
           onChange={handleInputChange} 
           value={inputValue}
+          placeholder={placeHolder}
           disabled={disabled}
-          className={`w-11/12 px-1 py-1 text-sm lg:text-base text-black rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
+          aria-invalid={!isValid}
+          aria-describedby={isValid ? null : `${inputName}-error`}
+          aria-labelledby={`${inputName}-label`}
+          className={`w-11/12 px-1 py-1 text-sm lg:text-base text-black placeholder-gray-500 rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
         />
       );
       break;
   }
   return (
     <>
-      <label htmlFor={inputName} className='flex w-auto mt-3 text-start text-xs 2xl:text-lg text-black dark:text-white'>
+      <label htmlFor={inputName} id={`${inputName}-label`} className='flex w-auto mt-3 text-start text-xs 2xl:text-lg text-black dark:text-white'>
         {inputLabel}
       </label>
       <div className='flex w-auto mt-1 '>
         {inputGroup}      
       </div>
-      {!isValid && <div className="text-red-600 text-sm mt-1">Invalid Input</div>}
+      {!isValid && <div id={`${inputName}-error`} className="text-red-600 text-sm mt-1">Invalid Input</div>}
     </>
   );
 }

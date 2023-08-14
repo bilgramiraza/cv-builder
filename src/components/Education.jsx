@@ -20,13 +20,13 @@ function Education({getEducation, education}) {
       case 'eduTitle':
         setEduTitle(e.target.value);
         break;
-      case 'desc':
+      case 'eduDesc':
         setDesc(e.target.value);
         break;
-      case 'endDate':
+      case 'eduEndDate':
         setEndDate(e.target.value);
         break;
-      case 'address':
+      case 'eduAddress':
         setAddress(e.target.value);
         break;
       default:
@@ -101,20 +101,20 @@ function Education({getEducation, education}) {
       <form className={`flex flex-col pb-2 ${showForm?'':'hidden'}`} onSubmit={handleSubmit} key={index}>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3'>
-            <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="text" inputName="eduTitle" inputLabel="Education Title" inputValue={eduTitle} handleChange={handleChange} placeHolder="XYZ Uni" disabled={status}/>
           </div>
         </div>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="text" inputName="address" inputLabel="Location of Institute" inputValue={address} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="text" inputName="eduAddress" inputLabel="Location of Institute" inputValue={address} handleChange={handleChange} placeHolder="USA" disabled={status}/>
           </div>
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="month" inputName="endDate" inputLabel="Year of Completion" inputValue={endDate} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="month" inputName="eduEndDate" inputLabel="Year of Completion" inputValue={endDate} handleChange={handleChange} disabled={status}/>
           </div>
         </div>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3'>
-            <InputGroup inputType="desc" inputName="desc" inputLabel="Description" inputValue={desc} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="desc" inputName="eduDesc" inputLabel="Description" inputValue={desc} handleChange={handleChange} placeHolder="Studied at this Uni" disabled={status}/>
           </div>
         </div>
         <div className="flex justify-center my-4">

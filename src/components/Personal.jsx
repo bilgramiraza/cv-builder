@@ -25,7 +25,7 @@ function Personal({getPersonal, personal}) {
       case 'email':
         setEmail(e.target.value);
         break;
-      case 'address':
+      case 'personalAddress':
         setAddress(e.target.value);
         break;
       case 'website':
@@ -78,26 +78,26 @@ function Personal({getPersonal, personal}) {
       <form onSubmit={handleSubmit} className={`flex flex-col pb-2 ${showForm?'':'hidden'}`}>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="text" inputName="firstName" inputLabel="First Name" inputValue={fname} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="text" inputName="firstName" inputLabel="First Name" inputValue={fname} handleChange={handleChange} placeHolder="John" disabled={status}/>
           </div>
           <div className='block w-full ms-3 lg:w-1/2 '>
-            <InputGroup inputType="text" inputName="lastName" inputLabel="Last Name" inputValue={lname} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="text" inputName="lastName" inputLabel="Last Name" inputValue={lname} handleChange={handleChange} placeHolder="Smith" disabled={status}/>
           </div>
         </div>
         <div className="flex flex-col w-full my-1.5 lg:flex-row">
           <div className='block w-full ms-3 lg:w-1/3 '>
-            <InputGroup inputType="email" inputName="email" inputLabel="Email" inputValue={email} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="email" inputName="email" inputLabel="Email" inputValue={email} handleChange={handleChange} placeHolder="test@test.com" disabled={status}/>
           </div>
           <div className='block w-full ms-3 lg:w-1/3 '>
-            <InputGroup inputType="text" inputName="address" inputLabel="Address" inputValue={address} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="text" inputName="personalAddress" inputLabel="Address" inputValue={address} handleChange={handleChange} placeHolder="New York, USA" disabled={status}/>
           </div>
           <div className='block w-full ms-3 lg:w-1/3 '>
-            <InputGroup inputType="url" inputName="website" inputLabel="Website/Github link here" inputValue={website} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="url" inputName="website" inputLabel="Website/Github link here" inputValue={website} handleChange={handleChange} placeHolder="https://test.com" disabled={status}/>
           </div>
         </div>
         <div className="flex flex-col w-auto my-1.5 lg:flex-row">
           <div className='block w-full ms-3'>
-            <InputGroup inputType="desc" inputName="profSummary" inputLabel="Professional Summary" inputValue={profSummary} handleChange={handleChange} disabled={status}/>
+            <InputGroup inputType="desc" inputName="profSummary" inputLabel="Professional Summary" inputValue={profSummary} handleChange={handleChange} placeHolder="Enter a Short Summary about yourself here" disabled={status}/>
           </div>
         </div>
         <div className="flex justify-center mt-2">
