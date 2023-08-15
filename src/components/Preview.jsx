@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { DateTime } from 'luxon';
 
-function Preview({ personal, education, experience }) {
+function Preview({ personal, education, experience, loadMockData}) {
 
   const educationDiv = !education[0]?.status ? [] : education.map((edu, i) => {
     if(!edu.status) return;
@@ -22,8 +22,8 @@ function Preview({ personal, education, experience }) {
     return (
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
-          <span className='w-4/5 text-2xl'>{exp.expCompany}</span>
-          <span className='w-1/5 text-xl text-right'>{DateTime.fromISO(exp.startDate).toFormat('MMM yyyy')} - {DateTime.fromISO(exp.endDate).toFormat('MMM yyyy')}</span>
+          <span className='w-3/5 text-2xl'>{exp.expCompany}</span>
+          <span className='w-2/5 text-xl text-right'>{DateTime.fromISO(exp.startDate).toFormat('MMM yyyy')} - {DateTime.fromISO(exp.endDate).toFormat('MMM yyyy')}</span>
         </div>
         <div className='flex flex-row justify-between text-xl font-semibold italic'>
           <span>{exp.expTitle}</span>
@@ -37,22 +37,25 @@ function Preview({ personal, education, experience }) {
 
   return (
     <div className='block w-4/5 mt-6 mx-auto border border-4 border-lg rounded-lg bg-white p-2 font-serif '>
-      <div className='mb-3'>
+      <div className='mb-3 flex flex-row justify-between'>
         <h2 className='font-bold text-6xl'>
-          <span>{!personal ? 'John' : personal.firstName}</span>
+          <span>{personal?.firstName}</span>
           <span>{' '}</span>
-          <span>{!personal ? 'Smith' : personal.lastName}</span>
+          <span>{personal?.lastName}</span>
         </h2>
+        <div>
+          <button className='bg-gray-500 border border-gray-900 rounded-xl text-white font-semibold hover:bg-gray-300 hover:text-gray-900 leading-tight py-2 px-3 cursor-pointer' onClick={loadMockData}>Load Mock Data</button>
+        </div>
       </div>
       <div className='flex flex-row justify-start leading-none w-3/4'>
-        <span className='me-6'>{!personal ? 'JSmith@email.com' : personal.email}</span>
-        <span className='me-6'>{!personal ? 'State, Country' : personal.address}</span>
-        <span className='me-6'>{!personal ? 'www.site.com' : personal.website}</span>
+        <span className='me-6'>{personal?.email}</span>
+        <span className='me-6'>{personal?.address}</span>
+        <span className='me-6'>{personal?.website}</span>
       </div>
       <div>
         <h3 className='text-3xl font-semibold'>PROFESSIONAL SUMMARY</h3>
         <hr className='h-0.5 bg-black border-0 dark:bg-gray-700' />
-        <p className='text-lg'>{!personal ? 'Lorem Ipsum' : personal.profSummary}</p>
+        <p className='text-lg'>{personal?.profSummary}</p>
       </div>
       <div>
         <h3 className='text-3xl font-semibold'>PROFESSIONAL EXPERIENCE</h3>
@@ -78,4 +81,5 @@ Preview.propTypes = {
   personal: PropTypes.object,
   education: PropTypes.array,
   experience: PropTypes.array,
+  loadMockData: PropTypes.func.isRequired,
 };
