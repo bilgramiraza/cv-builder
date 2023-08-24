@@ -62,7 +62,7 @@ InputGroup.propTypes = {
   inputType: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
-  placeHolder: PropTypes.string.isRequired,
+  placeHolder: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
 };
