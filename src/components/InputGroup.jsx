@@ -22,7 +22,7 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange,
           aria-invalid={!isValid}
           aria-describedby={isValid ? null : `${inputName}-error`}
           aria-labelledby={`${inputName}-label`}
-          className={`w-11/12 px-1 py-1 text-sm lg:text-base text-black placeholder-gray-500 rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
+          className={`w-11/12 px-1 py-1 text-sm lg:text-base placeholder-gray-500 rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
         />
       );
       break;
@@ -39,7 +39,7 @@ function InputGroup({inputName, inputType, inputLabel, inputValue, handleChange,
           aria-invalid={!isValid}
           aria-describedby={isValid ? null : `${inputName}-error`}
           aria-labelledby={`${inputName}-label`}
-          className={`w-11/12 px-1 py-1 text-sm lg:text-base text-black placeholder-gray-500 rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
+          className={`w-11/12 px-1 py-1 text-sm lg:text-base placeholder-gray-500 rounded-r-md bg-gray-300 text-black border ${isValid ?'border-gray-300':'border-red-500'} focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white`}
         />
       );
       break;
@@ -62,6 +62,7 @@ InputGroup.propTypes = {
   inputType: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
+  placeHolder: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
 };
