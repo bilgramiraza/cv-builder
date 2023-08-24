@@ -74,7 +74,7 @@
 
 * [![React][React.js]][React-url]
 * [![TailwindCSS][TailwindCSS]][TailwindCSS-url]
-* [![Vite][vitejs]][Vite-url]
+* [![Vite][Vite]][Vite-url]
 * [![JavaScript][JavaScript]][JavaScript-url]
 * [![CSS3][CSS3]][CSS3-url]
 * [![HTML5][HTML5]][HTML5-url]
