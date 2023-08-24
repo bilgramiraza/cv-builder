@@ -73,11 +73,11 @@
 ### Built With
 
 * [![React][React.js]][React-url]
-* [![TailwindCSS][TailwindCSS.com]][TailwindCSS-url]
-* [![Vite][vitejs.dev]][Vite-url]
-* [![JavaScript][ecma-international.org]][JavaScript-url]
-* [![CSS3][www.w3.org]][CSS3-url]
-* [![HTML5][html.spec.whatwg.org]][HTML5-url]
+* [![TailwindCSS][TailwindCSS]][TailwindCSS-url]
+* [![Vite][vitejs]][Vite-url]
+* [![JavaScript][JavaScript]][JavaScript-url]
+* [![CSS3][CSS3]][CSS3-url]
+* [![HTML5][HTML5]][HTML5-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
