@@ -1,13 +1,18 @@
-<div id="top"></div>
-
+<a name="readme-top"></a>
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+
+
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/bilgramiraza/cv-builder">
-    <img src="./public/logo192.png" alt="Logo" width="80" height="80">
+    <img src="public/vite.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">CV Builder</h3>
@@ -18,9 +23,15 @@
     <a href="https://github.com/bilgramiraza/cv-builder"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://github.com/bilgramiraza/cv-builder">View Demo</a>
+    ·
+    <a href="https://github.com/bilgramiraza/cv-builder/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/bilgramiraza/cv-builder/issues">Request Feature</a>
   </p>
 </div>
+
+
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -40,31 +51,37 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
+
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![CV Builder Screen Shot][product-screenshot]]()
+[![CV Builder Screen Shot][product-screenshot]](https://github.com/bilgramiraza/cv-builder)
 
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ### Built With
 
-* [React.js](https://reactjs.org/)
-* [TailwindCSS](https://tailwindcss.com)
-* [Vite](https://vitejs.dev)
-* [JavaScript](https://javascript.com)
-* [HTML/CSS](https://html.spec.whatwg.org)
+* [![React][React.js]][React-url]
+* [![TailwindCSS][TailwindCSS.com]][TailwindCSS-url]
+* [![Vite][vitejs.dev]][Vite-url]
+* [![JavaScript][ecma-international.org]][JavaScript-url]
+* [![CSS3][www.w3.org]][CSS3-url]
+* [![HTML5][html.spec.whatwg.org]][HTML5-url]
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -89,36 +106,63 @@ Make sure your npm is upto date.
    ```sh
    npm install
    ```
-3. In the project directory, you can run:
-
+3. Switch to your project directory, then you can run:
    ```sh
    npm run dev
    ```
+   Runs the app in the development mode. Open by pressing 'o' or by visiting http://localhost:5173/ to view it in your browser.
 
-Runs the app in the development mode.
-Open by pressing 'o' or by visiting [http://localhost:5173/](http://localhost:5173) to view it in your browser.
+  The page will reload when you make changes.
 
-The page will reload when you make changes.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-This is a website that takes information from the user and generates a CV in turn.
-This project is built using React, TailwindCSS and Vite 
+This is a website that takes information from the user and generates a CV in turn. This project is built using React, TailwindCSS and Vite 
 
-A couple of the projects features:
+1.  Helps User Origanize/Optimize their CV content using The simple UI.
 
-*
+2.  Generate CVs that are both professional and Machine Readable with ease.
 
-
-<img src="" alt="" width="700" height="500">
-<br>
-<img src="" alt="" width="700" height="500">
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] Create MVP
+- [ ] Generate Downloadable PDF's using the users data
+- [ ] Add More Fields
+- [ ] Shift to Proper State Management
+- [ ] Add Groups
+- [ ] Scale up the Project to FullStack
+
+See the [open issues](https://github.com/bilgramiraza/cv-builder/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- LICENSE -->
@@ -126,17 +170,18 @@ A couple of the projects features:
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- CONTACT -->
 ## Contact
 
-Syed Mohd Raza Hassan Bilgrami - bilgramiraza@yahoo.com
+S.M. Raza Hassan Bilgrami - bilgramiraza@yahoo.com
 
 Project Link: [https://github.com/bilgramiraza/cv-builder](https://github.com/bilgramiraza/cv-builder)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -145,16 +190,35 @@ Project Link: [https://github.com/bilgramiraza/cv-builder](https://github.com/bi
 
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 * [The-Odin-Project](https://www.theodinproject.com/)
-* [Vite](https://vitejs.dev)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/bilgramiraza/cv-builder.svg?style=for-the-badge
+[contributors-url]: https://github.com/bilgramiraza/cv-builder/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/bilgramiraza/cv-builder.svg?style=for-the-badge
+[forks-url]: https://github.com/bilgramiraza/cv-builder/network/members
+[stars-shield]: https://img.shields.io/github/stars/bilgramiraza/cv-builder.svg?style=for-the-badge
+[stars-url]: https://github.com/bilgramiraza/cv-builder/stargazers
+[issues-shield]: https://img.shields.io/github/issues/bilgramiraza/cv-builder.svg?style=for-the-badge
+[issues-url]: https://github.com/bilgramiraza/cv-builder/issues
 [license-shield]: https://img.shields.io/github/license/bilgramiraza/cv-builder.svg?style=for-the-badge
-[license-url]: https://github.com/bilgramiraza/cv-builder/blob/master/LICENSE.txt
+[license-url]: https://github.com/bilgramiraza/cv-builder/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/bilgramiraza
-[product-screenshot]: 
+[linkedin-url]: https://linkedin.com/in/smrazahassan
+[product-screenshot]: images/screenshot.png
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
+[Vite-url]: https://vitejs.dev/
+[TailwindCSS]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
+[TailwindCSS-url]: https://tailwindcss.com 
+[JavaScript]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E 
+[JavaScript-url]: https://www.ecma-international.org/publications-and-standards/standards/ecma-262/ 
+[HTML5]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white 
+[HTML5-url]: https://html.spec.whatwg.org/multipage/
+[CSS3]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
+[CSS3-url]: https://www.w3.org/Style/CSS/current-work.en.html
