@@ -206,7 +206,7 @@ Project Link: [https://github.com/bilgramiraza/cv-builder](https://github.com/bi
 [license-url]: https://github.com/bilgramiraza/cv-builder/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/smrazahassan
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/screenshot1.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
