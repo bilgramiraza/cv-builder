@@ -11,9 +11,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/bilgramiraza/cv-builder">
-    <img src="public/vite.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">CV Builder</h3>
 
