@@ -43,7 +43,7 @@ function CvBuilder({ darkMode }) {
         firstName: "John",
         lastName: "Doe",
         email: "john.doe@example.com",
-        address: "123 Main Street, Cityville, Country",
+        address: "Cityville, Country",
         website: "https://www.johndoe.com",
         profSummary: "Experienced professional with a proven track record in various fields, including software engineering, project management, and marketing. Skilled in leading cross-functional teams, developing innovative solutions, and driving results. Proficient in multiple programming languages, web development frameworks, and digital marketing strategies. Strong analytical thinker with a creative approach to problem-solving. Recognized for exceptional communication skills and the ability to collaborate effectively with stakeholders at all levels. Passionate about staying up-to-date with industry trends and technologies. Eager to contribute expertise and drive growth within a dynamic organization.",
         status: true,
@@ -94,7 +94,7 @@ function CvBuilder({ darkMode }) {
         <Education getEducation={(value) => handleSubmit('education', value)} education={cv.education} />
         <Experience getExperience={(value) => handleSubmit('experience', value)} experience={cv.experience} />
       </div>
-      <div className="block border-l-2 border-black w-full lg:w-3/5 px-2 bg-gray-400 dark:border-white dark:bg-gray-900">
+      <div className="block border-l-2 border-black w-full lg:w-3/5 px-2 bg-gray-400 dark:border-white dark:bg-gray-900 overflow-x-auto">
         <Preview personal={cv.personal} education={cv.education} experience={cv.experience} loadMockData={loadMockData}/>
       </div>
     </main>
