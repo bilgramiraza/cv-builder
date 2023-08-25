@@ -94,7 +94,7 @@ function CvBuilder({ darkMode }) {
         <Education getEducation={(value) => handleSubmit('education', value)} education={cv.education} />
         <Experience getExperience={(value) => handleSubmit('experience', value)} experience={cv.experience} />
       </div>
-      <div className="block border-l-2 border-black w-full lg:w-3/5 px-2 bg-gray-400 dark:border-white dark:bg-gray-900 overflow-x-scroll">
+      <div className="block border-l-2 border-black w-full lg:w-3/5 px-2 bg-gray-400 dark:border-white dark:bg-gray-900 overflow-x-auto">
         <Preview personal={cv.personal} education={cv.education} experience={cv.experience} loadMockData={loadMockData}/>
       </div>
     </main>

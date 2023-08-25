@@ -36,7 +36,7 @@ function Preview({ personal, education, experience, loadMockData}) {
   });
 
   return (
-    <div className='block w-[35rem] mt-6 mx-auto border-4 border-lg rounded-lg bg-white p-2 font-serif text-black'>
+    <div className='block w-[35rem] my-6 mx-auto border-4 border-lg rounded-lg bg-white p-2 font-serif text-black'>
       <div className='mb-3 flex flex-row justify-between'>
         <div className='font-bold'>
           <span className='text-[24px]'>{personal?.firstName}</span>
