@@ -20,7 +20,7 @@
     <a href="https://github.com/bilgramiraza/cv-builder"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/bilgramiraza/cv-builder">View Demo</a>
+    <a href="https://cv-builder-d39.pages.dev/" target="_blank">View Demo</a>
     ·
     <a href="https://github.com/bilgramiraza/cv-builder/issues">Report Bug</a>
     ·
@@ -133,9 +133,8 @@ This is a website that takes information from the user and generates a CV in tur
 
 - [x] Create MVP
 - [ ] Generate Downloadable PDF's using the users data
-- [ ] Add More Fields
+- [ ] Add More Fields and Sections
 - [ ] Shift to Proper State Management
-- [ ] Add Groups
 - [ ] Scale up the Project to FullStack
 
 See the [open issues](https://github.com/bilgramiraza/cv-builder/issues) for a full list of proposed features (and known issues).
