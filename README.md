@@ -132,7 +132,7 @@ This is a website that takes information from the user and generates a CV in tur
 ## Roadmap
 
 - [x] Create MVP
-- [ ] Generate Downloadable PDF's using the users data
+- [x] Generate Downloadable PDFs using the users data
 - [ ] Add More Fields and Sections
 - [ ] Shift to Proper State Management
 - [ ] Scale up the Project to FullStack
