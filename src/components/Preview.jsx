@@ -4,7 +4,7 @@ import { DateTime } from 'luxon';
 function Preview({ personal, education, experience }) {
 
   const educationDiv = !education[0]?.status ? [] : education.map((edu, i) => {
-    if(!edu.status) return;
+    if (!edu.status) return;
     return (
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
@@ -18,7 +18,7 @@ function Preview({ personal, education, experience }) {
       </div>);
   });
   const experienceDiv = !experience[0]?.status ? [] : experience.map((exp, i) => {
-    if(!exp.status) return;
+    if (!exp.status) return;
     return (
       <div key={i}>
         <div className='flex flex-row justify-between font-bold'>
@@ -36,32 +36,34 @@ function Preview({ personal, education, experience }) {
   });
 
   return (
-    <div className='block w-[35rem] my-6 mx-auto border-4 border-lg rounded-lg bg-white p-2 font-serif text-black'>
-      <div className='mb-0 flex flex-row justify-between font-bold leading-none'>
-        <span className='text-[24px]'>{personal?.firstName} {personal?.lastName}</span>
-      </div>
-      <div className='flex flex-row justify-start flex-grow leading-none w-11/12'>
-        <span className='me-2 text-[12px]'>{personal?.email}</span>
-        <span className='me-2 text-[12px]'>{personal?.address}</span>
-        <span className='text-[12px]'>{personal?.website}</span>
-      </div>
-      <div>
-        <p className='text-[14px] font-semibold'>PROFESSIONAL SUMMARY</p>
-        <hr className='h-0.5 bg-black border-0 dark:bg-gray-700' />
-        <p className='text-[12px] '>{personal?.profSummary}</p>
-      </div>
-      <div>
-        <p className='text-[14px] font-semibold'>PROFESSIONAL EXPERIENCE</p>
-        <hr className='h-0.5 bg-black border-0 dark:bg-gray-700' />
-        <div>
-          {experienceDiv}
+    <div className='block w-[35rem] mx-auto border-4 border-lg rounded-lg bg-white font-serif text-black'>
+      <div id='resume' className='my-6 p-2'>
+        <div className='mb-1 flex flex-row justify-between font-bold leading-none'>
+          <span className='text-[24px]'>{personal?.firstName} {personal?.lastName}</span>
         </div>
-      </div>
-      <div>
-        <p className='text-[14px] font-semibold'>EDUCATION</p>
-        <hr className='h-0.5 bg-black border-0 dark:bg-gray-700' />
+        <div className='flex flex-row justify-start flex-grow leading-none w-11/12'>
+          <span className='me-2 text-[12px]'>{personal?.email}</span>
+          <span className='me-2 text-[12px]'>{personal?.address}</span>
+          <span className='text-[12px]'>{personal?.website}</span>
+        </div>
         <div>
-          {educationDiv}
+          <p className='text-[14px] font-semibold'>PROFESSIONAL SUMMARY</p>
+          <hr className='mt-1 h-0.5 bg-black border-0 dark:bg-gray-700' />
+          <p className='text-[12px] '>{personal?.profSummary}</p>
+        </div>
+        <div>
+          <p className='text-[14px] font-semibold'>PROFESSIONAL EXPERIENCE</p>
+          <hr className='mt-1 h-0.5 bg-black border-0 dark:bg-gray-700' />
+          <div>
+            {experienceDiv}
+          </div>
+        </div>
+        <div>
+          <p className='text-[14px] font-semibold'>EDUCATION</p>
+          <hr className='mt-1 h-0.5 bg-black border-0 dark:bg-gray-700' />
+          <div>
+            {educationDiv}
+          </div>
         </div>
       </div>
     </div>);
