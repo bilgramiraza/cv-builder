@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { DateTime } from 'luxon';
 
-function Preview({ personal, education, experience, loadMockData}) {
+function Preview({ personal, education, experience }) {
 
   const educationDiv = !education[0]?.status ? [] : education.map((edu, i) => {
     if(!edu.status) return;
@@ -37,15 +37,8 @@ function Preview({ personal, education, experience, loadMockData}) {
 
   return (
     <div className='block w-[35rem] my-6 mx-auto border-4 border-lg rounded-lg bg-white p-2 font-serif text-black'>
-      <div className='mb-3 flex flex-row justify-between'>
-        <div className='font-bold'>
-          <span className='text-[24px]'>{personal?.firstName}</span>
-          <span className='text-[24px]'>{' '}</span>
-          <span className='text-[24px]'>{personal?.lastName}</span>
-        </div>
-        <div>
-          <button className='bg-gray-500 border border-gray-900 rounded-xl text-white font-semibold hover:bg-gray-300 hover:text-gray-900 leading-tight py-2 px-3 cursor-pointer' onClick={loadMockData}>Load Mock Data</button>
-        </div>
+      <div className='mb-0 flex flex-row justify-between font-bold leading-none'>
+        <span className='text-[24px]'>{personal?.firstName} {personal?.lastName}</span>
       </div>
       <div className='flex flex-row justify-start flex-grow leading-none w-11/12'>
         <span className='me-2 text-[12px]'>{personal?.email}</span>
@@ -81,5 +74,4 @@ Preview.propTypes = {
   personal: PropTypes.object,
   education: PropTypes.array,
   experience: PropTypes.array,
-  loadMockData: PropTypes.func.isRequired,
 };
